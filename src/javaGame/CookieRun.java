@@ -444,7 +444,7 @@ public class CookieRun extends JFrame {
 			
 			buffg.drawImage(b, b1, 0, this); // 배경
 			buffg.drawImage(b, b2, 0, this); // 뒤6따라 오는 배경
-			buffg.drawImage(bgTwo, 0, 0, 970, 500, this); // 땅 배경
+			buffg.drawImage(bgTwo, 0, 0, 970, 480, this); // 땅 배경
 //			buffg.drawImage(c, imgX, imgY, null); // 캐릭터
 			
 
@@ -464,7 +464,7 @@ public class CookieRun extends JFrame {
 				}else {
 					tempJelly.setX(tempJelly.getX() -1);
 					
-					if(tempJelly.getY() > imgY +200 && tempJelly.getY() < imgY + cookieHeight // 임시, 추후에 수정
+					if(tempJelly.getY() > imgY + 200 && tempJelly.getY() < imgY + cookieHeight // 임시, 추후에 수정
 					&& tempJelly.getX() > 160 && tempJelly.getX() < 240) {
 						tempJelly.setImage(effect.getImage());
 					}
@@ -558,7 +558,7 @@ public class CookieRun extends JFrame {
 			alphaComposite = AlphaComposite.getInstance(AlphaComposite.SRC_OVER,(float)cookieAlpha/255);
 			g2.setComposite(alphaComposite);
 			
-			buffg.drawImage(c, 160, imgY, c.getWidth(null), c.getHeight(null), this);
+			buffg.drawImage(c, imgX, imgY, c.getWidth(null), c.getHeight(null), this);
 			
 			alphaComposite = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, (float)255/255);
 			g2.setComposite(alphaComposite);
