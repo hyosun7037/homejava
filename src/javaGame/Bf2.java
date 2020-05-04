@@ -54,11 +54,11 @@ public class Bf2 {
 		int x = 10;
 		int y = 21;
 		try {
-			int[] tempArr1 = getSize("image/firstMap.png");
+			int[] tempArr1 = getSize("img/firstMap.png");
 			int maxX = tempArr1[0];
 			int maxY = tempArr1[1];
 			
-			int[][] tempArr = getPic("image/firstMap.png");
+			int[][] tempArr = getPic("img/firstMap.png");
 			
 			for (int i = 0; i < maxX; i+=1) {
 				for (int j = 0; j < maxY; j+=1) {

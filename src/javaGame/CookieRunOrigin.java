@@ -77,40 +77,40 @@ public class CookieRunOrigin extends JFrame {
 	private AlphaComposite alphaComposite; 
 	
 	//// 이미지 ////
-	ImageIcon landIc = new ImageIcon("image/land.png"); // 발판
+	ImageIcon landIc = new ImageIcon("img/land.png"); // 발판
 	Image landimg = landIc.getImage();
 	
-	ImageIcon bg = new ImageIcon("image/bg1.png"); // bg 움직이는 이미지
+	ImageIcon bg = new ImageIcon("img/bg1.png"); // bg 움직이는 이미지
 	Image b = bg.getImage();
 
-	ImageIcon bg2 = new ImageIcon("image/bg2.png"); // bg 고정이미지
+	ImageIcon bg2 = new ImageIcon("img/bg2.png"); // bg 고정이미지
 	Image bgTwo = bg2.getImage();
 
 	int b1 = 0;
 	int b2 = b.getWidth(null); // 따라오는 이미지
 
 	// 원본 캐릭터 이미지
-	ImageIcon cookie = new ImageIcon("image/player_origin.gif");
+	ImageIcon cookie = new ImageIcon("img/player_origin.gif");
 	Image c = cookie.getImage();
 
 	// 다운 이미지 (슬라이딩)
-	ImageIcon cookie2 = new ImageIcon("image/player_down.gif");
+	ImageIcon cookie2 = new ImageIcon("img/player_down.gif");
 	Image down = cookie2.getImage();
 
 	// 점프 이미지
-	ImageIcon cookieJump = new ImageIcon("image/player_up.gif");
+	ImageIcon cookieJump = new ImageIcon("img/player_up.gif");
 	Image cj = cookieJump.getImage();
 	
 	// 더블점프 이미지
-	ImageIcon cookieDoubleJump = new ImageIcon("image/player_doubleup.gif");
+	ImageIcon cookieDoubleJump = new ImageIcon("img/player_doubleup.gif");
 	Image dj = cookieDoubleJump.getImage();
 	
 	// 더블점프 후 떨어지는 이미지
-	ImageIcon cookieDoubleJumpEnd = new ImageIcon("image/player_jumpend.png");
+	ImageIcon cookieDoubleJumpEnd = new ImageIcon("img/player_jumpend.png");
 	Image je = cookieDoubleJumpEnd.getImage();
 
 	// 아이템 이미지 (이미지 넣기 완료)
-	ImageIcon item = new ImageIcon("image/item.gif");
+	ImageIcon item = new ImageIcon("img/item.gif");
 	Image item_i = item.getImage();
 	
 	// 더블 버퍼 선언 (전역에 추가)
@@ -118,7 +118,7 @@ public class CookieRunOrigin extends JFrame {
 	Graphics buffg;
 	
 	// 아이템 이펙트 효과 이미지
-	ImageIcon effIc = new ImageIcon("image/effTest1.png");
+	ImageIcon effIc = new ImageIcon("img/effTest1.png");
 	
 	// 현재시간 가져오기
 	static long getTime() {
@@ -466,7 +466,7 @@ public class CookieRunOrigin extends JFrame {
 				buffImage = createImage(this.getWidth(), this.getHeight());
 				if(buffImage == null) {
 					System.out.println("더블 버퍼링용 오프 스크린 생성 실패");
-				}else {
+				}else{
 					buffg = buffImage.getGraphics();
 				}
 			}
