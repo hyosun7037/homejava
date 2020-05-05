@@ -21,4 +21,6 @@ public class Jelly{
 	
 	// 젤리의 투명도 (0이 투명이며 255가 불투명)
 	int alpha;
+	int score;
+
 }

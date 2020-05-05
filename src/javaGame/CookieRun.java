@@ -51,16 +51,7 @@ public class CookieRun extends JFrame {
 	boolean invincible = false; // 무적상태 변수
 
 	int imgX = 0;
-	int imgY = 5; // 원래 40
-
-	int imgBgX = 0;
-	int imgBgY = 0;
-
-	int time = 60;
-	int fieldY = 0;
-
-	int itemX = 50;
-	int itemY = 50;
+	int imgY = 5;
 
 	int count = 0; // 발판 확인 변수
 	int field = 300; // 발판높이
@@ -77,6 +68,7 @@ public class CookieRun extends JFrame {
 	private AlphaComposite alphaComposite; // 투명도 조절을 위한 변수
 
 	int cookieAlpha = 255;
+	
 	
 	/////////////////////// 이미지 ////////////////////////////////////
 
@@ -189,6 +181,8 @@ public class CookieRun extends JFrame {
 			
 			
 			/////////// 패널에서 이미지 불러오기 ///////////
+			
+			// 발판 리스트
 			for (int i = 0; i < maxX; i+=2) { // 발판은 4칸을 차지하는 공간, 2,2사이즈로 반복문
 				for (int j = 0; j < maxY; j+=2) { // 색 값이 0일 경우 (검은색)
 					if(colorArr[i][j] == 0) {
@@ -197,16 +191,17 @@ public class CookieRun extends JFrame {
 				}
 			}
 			
+			// 젤리 리스트
 			for (int i = 0; i < maxX; i+=1) { // 젤리는 1칸을 차지, 1,1사이즈로 반복문
 				for (int j = 0; j < maxY; j+=1) {
 					if(colorArr[i][j] == 16773632) { // 색 값이 16773632일 경우 (노란색)
-						jellyList.add(new Jelly(item.getImage(), i*40, j*40, 30, 30, 255)); // 좌표에 40곱하고, 넓이와 높이는 30으로 한다.
+						jellyList.add(new Jelly(item.getImage(), i*40, j*40, 30, 30, 1000,0)); // 좌표에 40곱하고, 넓이와 높이는 30으로 한다.
 					}
 				}				
 			}
 			
-			
-			for (int i = 0; i < maxX; i+=2) { // 
+			// 장애물 리스트
+			for (int i = 0; i < maxX; i+=2) {
 				for (int j = 0; j < maxY; j+=2) {
 					if(colorArr[i][j] == 16711680) { // 색 값이 16711680일 경우 (빨간색)
 						attackList.add(new Attack(attack.getImage(), i*40, j*40, 80, 80, 255)); // 좌표에 40곱하고, 넓이와 높이는 30으로 한다.
@@ -528,27 +523,6 @@ public class CookieRun extends JFrame {
 						}).start();
 					}
 				}
-				
-				
-				
-//				if(tempAttack.getY() > imgY + 200 && tempAttack.getY() < imgY + cookieHeight
-//				&& tempAttack.getX() > 160 && tempAttack.getX() < 240) {
-//					new Thread(new Runnable() {
-//						
-//						@Override
-//						public void run() {
-//							 
-//							try {
-//								c = cookieAttack.getImage();
-//								Thread.sleep(3000);
-//								c = cookie.getImage();
-//							} catch (InterruptedException e) {
-//								e.printStackTrace();
-//							}
-//						}
-//					}).start();
-//				}
-				
 				
 				buffg.drawImage(tempAttack.getImage(), tempAttack.getX(), tempAttack.getY(), tempAttack.getWidth(), tempAttack.getHeight(), null);
 			}
