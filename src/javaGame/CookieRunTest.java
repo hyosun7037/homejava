@@ -496,34 +496,6 @@ public class CookieRunTest extends JFrame {
 			}).start();
 
 
-			/////////////////// 배경 무한 반복//////////////////////
-			new Thread(new Runnable() {
-				@Override // 배경 캐릭터와 반대방향으로 옆으로 이동
-				public void run() {
-					while (true) {
-
-						if (b11.getX() < -(b11.getWidth() - 1)) {
-							b11.setX(b11.getWidth());
-						}
-						
-						if (b12.getX() < -(b12.getWidth() - 1)) {
-							b12.setX(b12.getWidth());
-						}
-						
-						// 배경의 X좌표를 -1 해준다 (왼쪽으로 흐름)
-						b11.setX(b11.getX() - gameSpeed / 3);
-						b12.setX(b12.getX() - gameSpeed / 3);
-
-						try {
-							Thread.sleep(20);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-					}
-				}
-			}).start();// 배경 무한 반복 끝
-
-			
 			//////////////////// 키이벤트(업, 다운) ///////////////////////
 			this.addKeyListener(new KeyAdapter() {
 
@@ -617,8 +589,8 @@ public class CookieRunTest extends JFrame {
 
 				Field tempFoot = fieldList.get(i);
 
-				if (tempFoot.getX() > -90 && tempFoot.getX() < 810) {
-
+				if (tempFoot.getX() > -90) {
+					
 					buffg.drawImage(
 
 							tempFoot.getImage(), 
@@ -635,7 +607,7 @@ public class CookieRunTest extends JFrame {
 
 				Jelly tempJelly = jellyList.get(i);
 
-				if (tempJelly.getX() > -90 && tempJelly.getX() < 810) {
+				if (tempJelly.getX() > -90) {
 
 					buffg.drawImage(
 
@@ -864,7 +836,7 @@ public class CookieRunTest extends JFrame {
 		}
 	}
 	
-	/* 캐릭터 체력 자연 감소 메서드 */
+	/* 캐릭터 체력 자연 감소, 배경이동 메서드 */
 	void mapMove() {
 		new Thread(new Runnable() {
 			
@@ -876,6 +848,19 @@ public class CookieRunTest extends JFrame {
 						runPage = 0;
 					}
 					runPage += gameSpeed; // 화면이 이동하면 reunPage에 이동한 만큼 저장
+					
+					// 배경 이동
+					if (b11.getX() < -(b11.getWidth() - 1)) {
+						b11.setX(b11.getWidth());
+					}
+					
+					if (b12.getX() < -(b12.getWidth() - 1)) {
+						b12.setX(b12.getWidth());
+					}
+					
+					// 배경의 X좌표를 -1 해준다 (왼쪽으로 흐름)
+					b11.setX(b11.getX() - gameSpeed / 3);
+					b12.setX(b12.getX() - gameSpeed / 3);
 				}
 			}
 		}).start();
